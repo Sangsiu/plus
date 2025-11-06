@@ -1,1 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Mnet Signup Bot - Account Registration</title>
+  <meta name="description" content="Register new accounts with Mnet Signup Bot quickly and efficiently" />
+  <meta name="author" content="Lovable" />
 
+  <meta property="og:title" content="Mnet Signup Bot - Account Registration" />
+  <meta property="og:description" content="Register new accounts quickly and efficiently" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Lovable" />
+  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#a78bfa",
+            "primary-dark": "#8b5cf6",
+            success: "#059669",
+            "success-light": "#d1fae5",
+            info: "#6366f1",
+            "info-light": "#e0e7ff",
+            error: "#dc2626",
+            "error-light": "#fee2e2",
+          },
+          fontFamily: { sans: ["Inter", "system-ui", "sans-serif"] },
+          animation: {
+            "gradient-shift": "gradientShift 15s ease infinite",
+            "slide-in": "slideIn 0.3s ease",
+          },
+          keyframes: {
+            gradientShift: {
+              "0%, 100%": { opacity: "1" },
+              "50%": { opacity: "0.8" },
+            },
+            slideIn: {
+              from: { opacity: "0", transform: "translateY(-10px)" },
+              to: { opacity: "1", transform: "translateY(0)" },
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .bg-gradient-primary {
+      background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    }
+    .text-gradient-primary {
+      background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+  <div class="min-h-screen bg-gradient-to-br from-primary via-primary-dark to-primary-dark flex items-center justify-center p-8 sm:p-4 relative overflow-hidden">
+    <!-- Animated BG -->
+    <div class="absolute inset-0 animate-gradient-shift pointer-events-none">
+      <div style="background: radial-gradient(circle at 20% 50%, rgba(120,119,198,0.3) 0%, transparent 50%)" class="absolute inset-0"></div>
+      <div style="background: radial-gradient(circle at 80% 80%, rgba(138,43,226,0.2) 0%, transparent 50%)" class="absolute inset-0"></div>
+    </div>
+
+    <div class="max-w-[520px] w-full relative z-10 space-y-6">
+      <!-- Card -->
+      <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all duration-300 hover:shadow-[0_25px_70px_rgba(0,0,0,0.35)] hover:-translate-y-0.5">
+        <div class="p-10 sm:p-6">
+          <div class="text-center mb-8">
+            <h1 class="text-[1.875rem] font-extrabold mb-2 text-gradient-primary">🚀 Mnet Signup Bot</h1>
+            <p class="text-gray-500 text-sm">Register new accounts quickly and efficiently</p>
+          </div>
+
+          <!-- SIGNUP FORM -->
+          <form id="signupForm" class="space-y-5">
+            <!-- Email -->
+            <div class="space-y-2">
+              <label for="email" class="block text-sm font-semibold text-gray-700">Email Address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="user@example.com"
+                required
+                class="w-full h-12 px-4 rounded-xl border-2 border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none"
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="space-y-2">
+              <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="StrongPassw0rd!"
+                required
+                class="w-full h-12 px-4 rounded-xl border-2 border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none"
+              />
+              <div class="text-xs text-gray-500 leading-snug mt-1">
+                <p>Gunakan password yang kuat dengan ketentuan:</p>
+                <ul class="list-disc list-inside mt-1">
+                  <li>Minimal <strong>8 karakter</strong></li>
+                  <li>Mengandung <strong>1 atau lebih huruf kapital</strong></li>
+                  <li>Mengandung <strong>1 atau lebih angka</strong></li>
+                  <li>Mengandung <strong>1 atau lebih simbol</strong> seperti <code>! @ # $ % ^ &amp; *</code></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Gender + Birth Year -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <label for="gender" class="block text-sm font-semibold text-gray-700">Gender</label>
+                <select
+                  id="gender"
+                  name="gender"
+                  class="w-full h-12 px-4 rounded-xl border-2 border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white"
+                >
+                  <option value="m">Male</option>
+                  <option value="f">Female</option>
+                </select>
+              </div>
+
+              <div class="space-y-2">
+                <label for="birth_year" class="block text-sm font-semibold text-gray-700">Birth Year</label>
+                <input
+                  id="birth_year"
+                  name="birth_year"
+                  type="number"
+                  value="1998"
+                  class="w-full h-12 px-4 rounded-xl border-2 border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none"
+                />
+              </div>
+            </div>
+
+            <!-- Locale -->
+            <div class="space-y-2">
+              <label for="locale" class="block text-sm font-semibold text-gray-700">Locale</label>
+              <input
+                id="locale"
+                name="locale"
+                type="text"
+                value="en"
+                readonly
+                class="w-full h-12 px-4 rounded-xl border-2 border-gray-200 bg-gray-100 cursor-not-allowed outline-none"
+              />
+            </div>
+
+            <!-- Device Name -->
+            <div class="space-y-2">
+              <label for="device_name" class="block text-sm font-semibold text-gray-700">
+                Device Name <span class="text-gray-400 font-normal">(auto)</span>
+              </label>
+              <input
+                id="device_name"
+                name="device_name"
+                type="text"
+                value="SM-A5560"
+                readonly
+                class="w-full h-12 px-4 rounded-xl border-2 border-gray-200 bg-gray-100 cursor-not-allowed outline-none"
+              />
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="w-full h-14 text-base font-semibold bg-gradient-primary text-white rounded-xl shadow-[0_4px_15px_rgba(167,139,250,0.4)] hover:shadow-[0_6px_20px_rgba(167,139,250,0.5)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 relative overflow-hidden"
+            >
+              <span class="relative z-10">Register Account</span>
+            </button>
+          </form>
+
+          <!-- Message -->
+          <div id="msg" class="hidden"></div>
+
+          <hr class="my-8" />
+            <div id="batchMsg" class="hidden"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function showMessage(elementId, message, type) {
+      const element = document.getElementById(elementId);
+      element.textContent = message;
+      element.className = "text-center mt-4 px-3 py-2 rounded-xl text-[15px] font-medium animate-slide-in ";
+      switch (type) {
+        case "processing":
+          element.className += "bg-info-light text-info";
+          break;
+        case "success":
+          element.className += "bg-success-light text-success";
+          break;
+        case "error":
+          element.className += "bg-error-light text-error";
+          break;
+      }
+      element.classList.remove("hidden");
+    }
+
+    // SIGNUP SUBMIT
+    const signupForm = document.getElementById("signupForm");
+    signupForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      showMessage("msg", "Processing...", "processing");
+
+      const formData = new FormData(signupForm);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch(`${window.location.origin}/signup`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const json = await res.json();
+        if (res.ok) {
+          showMessage("msg", "✅ Success! Account registered.", "success");
+          signupForm.reset();
+          // Reset kembali field readonly
+          document.getElementById("locale").value = "en";
+          document.getElementById("device_name").value = "SM-A5560";
+        } else {
+          showMessage("msg", "❌ Error: " + (json.detail || "Unknown error"), "error");
+          console.error(json);
+        }
+      } catch (error) {
+        showMessage("msg", "❌ Network error. Please try again.", "error");
+        console.error(error);
+      }
+    });
+
+    // BATCH SUBMIT (opsional)
+    const batchForm = document.getElementById("batchForm");
+    const batchMsg = document.getElementById("batchMsg");
+    if (batchForm && batchMsg) {
+      batchForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        showMessage("batchMsg", "Uploading...", "processing");
+
+        const fd = new FormData(batchForm);
+        try {
+          const res = await fetch(`${window.location.origin}/batch-signup`, {
+            method: "POST",
+            body: fd,
+          });
+          const json = await res.json();
+          if (res.ok) {
+            showMessage("batchMsg", `✅ Done. Success: ${json.success} / ${json.processed}`, "success");
+            batchForm.reset();
+          } else {
+            showMessage("batchMsg", "❌ Error: " + (json.detail || "Unknown error"), "error");
+            console.error(json);
+          }
+        } catch (error) {
+          showMessage("batchMsg", "❌ Network error. Please try again.", "error");
+          console.error(error);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
