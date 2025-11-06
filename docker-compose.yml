@@ -1,0 +1,11 @@
+
+version: "3.8"
+services:
+  api:
+    build: .
+    container_name: mnet-signup-api
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app/src
+    restart: unless-stopped
